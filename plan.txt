@@ -1,0 +1,13 @@
+1. read pdf file
+
+2. API request to make it audio
+2.1 read documentation
+2.2 try simple request
+2.3 finish pdf file to speech
+
+3. Save somehow somewhere
+
+
+
+
+-----------------------⬇️ DONE BELOW ⬇️-----------------------
