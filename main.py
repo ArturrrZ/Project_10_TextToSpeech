@@ -1,19 +1,22 @@
-# with open('energy.pdf', 'r') as file:
-#     file1 =file.read()
-#     print(file1)
 
-
-# importing required modules
+from gtts import gTTS
 import PyPDF2
-with open('energy.pdf','rb') as file:
+
+# change the path to your pdf file just type text into TEXT variable
+PATH_FOR_PDF_FILE='your_pdf.pdf'
+TEXT="Any text you want"
+
+text=""
+with open(PATH_FOR_PDF_FILE,'rb') as file:
     pdf_reader=PyPDF2.PdfReader(file)
     # print(f"Number of pages: {len(pdf_reader.pages)}\n")
-    first_page=pdf_reader.pages[0]
-    # print("Text on first page:\n")
-    text1=first_page.extract_text()
-    # print(text1)
-    # print(len(text1))
-    # print(type(text1))
+    for page in pdf_reader.pages:
+        text_from_page=page.extract_text()
+        text +=  text_from_page + "\n"
 
+speech=gTTS(text=text,lang='en',slow=False)
+speech.save('pdf_as_audio.mp3')
 
+text_to_speech=gTTS(text=TEXT)
+text_to_speech.save('text_to_speech.mp3')
 
